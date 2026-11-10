@@ -13,7 +13,7 @@ server.
 |Kernel|4.1.37 (vendor)|6.18.58 (mainline + out-of-tree `al_eth`)|
 |OS|UniFi OS (Debian based)|Alpine Linux 3.23 (OpenRC, musl)|
 |Root filesystem|eMMC|eMMC, so all 4 bays are free for data|
-|Use|NVR only|NAS: btrfs, NFS, web file manager, stats, torrents|
+|Use|NVR only|NAS: btrfs, NFS, and more!|
 
 > [!WARNING]
 > This erases UniFi OS from the internal eMMC. **Back up the SPI
