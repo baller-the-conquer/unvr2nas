@@ -15,7 +15,7 @@ server.
 |Root filesystem|eMMC|eMMC, so all 4 bays are free for data|
 |Use|NVR only|NAS: btrfs, NFS, web file manager, stats, torrents|
 
-> WARNING!!! This erases UniFi OS from the internal eMMC. **Back up the SPI
+> [!WARNING] This erases UniFi OS from the internal eMMC. **Back up the SPI
 > flash and the eMMC from the stock OS first.** You need a 3.3 V UART adapter on
 > the board's serial header to talk to U-Boot.
 
