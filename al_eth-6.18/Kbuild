@@ -1,0 +1,20 @@
+# SPDX-License-Identifier: GPL-2.0
+# Out-of-tree build of the Annapurna Labs al_eth driver + Alpine HAL as one module.
+ccflags-y += -include $(src)/al_eth_port.h \
+	-I$(src) -I$(src)/hal -I$(src)/include -I$(src)/include/soc/alpine \
+	-Wno-error -Wno-unused-function -Wno-unused-variable -Wno-missing-prototypes \
+	-Wno-missing-declarations -Wno-implicit-fallthrough
+
+obj-m += al_eth.o
+
+al_eth-y := al_eth_main.o al_eth_sysfs.o al_hal_eth_main.o al_hal_eth_kr.o \
+	al_init_eth_kr.o al_init_eth_lm.o al_hal_serdes_25g.o al_eth_group_lm.o \
+	kcompat.o al_eth_hal_glue.o \
+	hal/al_hal_udma_config.o hal/al_hal_udma_main.o hal/al_hal_udma_debug.o \
+	hal/al_hal_udma_iofic.o hal/al_hal_iofic.o \
+	hal/al_hal_unit_adapter.o hal/al_hal_serdes_hssp.o hal/al_serdes.o \
+	hal/alpine_serdes.o hal/alpine_group_lm.o
+
+# Alpine SGPO (serial GPIO outputs: UNVR bay activity LEDs)
+obj-m += al_sgpo.o
+al_sgpo-y := al_sgpo_main.o hal/al_hal_sgpo.o
