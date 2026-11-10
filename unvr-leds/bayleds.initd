@@ -1,0 +1,14 @@
+#!/sbin/openrc-run
+description="UNVR drive-bay presence/activity LEDs"
+command=/usr/local/sbin/bayleds.sh
+command_background=true
+pidfile=/run/bayleds.pid
+
+depend() {
+	after modules localmount
+}
+
+stop_post() {
+	for f in /sys/class/leds/bay*:activity/brightness; do [ -w "$f" ] && echo 0 > "$f"; done
+	return 0
+}
